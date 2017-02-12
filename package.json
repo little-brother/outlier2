@@ -1,0 +1,25 @@
+{
+  "name": "outlier2",
+  "version": "3.14.15926",
+  "description": "Find outliers in dataset",
+  "main": "index.js",
+  "keywords": [
+    "outliners",
+    "statistic",
+    "stats",
+    "MAD",
+    "median differencing",
+    "iqr",
+    "grubbs",
+    "three sigma"
+  ],
+  "author": {
+    "name": "little-brother",
+    "email": "lb.im@ya.ru"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/little-brother/little-brother-dcim-agent.git"
+  },
+  "license": "MIT"
+}
