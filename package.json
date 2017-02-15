@@ -1,6 +1,6 @@
 {
   "name": "outlier2",
-  "version": "3.14.15926",
+  "version": "3.14.159265",
   "description": "Find outliers in dataset",
   "main": "index.js",
   "keywords": [

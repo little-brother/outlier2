@@ -5,7 +5,7 @@
 'use strict'
 const stat = require('../stat-func');
 
-module.exports = function (array, opts) {
+module.exports = function (array, opts, callback) {
 	let arr = array.slice(0).sort((a, b) => a - b);
 
 	let len = arr.length;
@@ -18,7 +18,9 @@ module.exports = function (array, opts) {
 
 	let outliers = arr.filter((e) => Math.abs(e - median) > range);
 
-	return (opts && !!opts.indexes) ?
+	let res = (opts && !!opts.indexes) ?
 		array.map((e, i) => outliers.indexOf(e) != -1 && i).filter((e) => e !== false):
 		outliers;
+
+	return (callback) ? callback(null, res) : res;
 }

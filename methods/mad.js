@@ -5,14 +5,17 @@
 'use strict'
 const stat = require('../stat-func');
 
-module.exports = function(arr, opts) {
+module.exports = function(arr, opts, callback) {
 	let threshold = opts && opts.threshold || 3.5;
 
 	let median = stat.median(arr);
 	let MAD = stat.median(arr.map((e) => Math.abs(e - median)));
 	
 	let check = (e) => Math.abs((0.6745 * (e - median)) / MAD) > threshold;
-	return (opts && !!opts.indexes) ?
+
+	let res = (opts && !!opts.indexes) ?
 		arr.map((e, i) => check(e) && i).filter((e) => e !== false): 
 		arr.filter(check);
+
+	return (callback) ? callback(null, res) : res;
 }
